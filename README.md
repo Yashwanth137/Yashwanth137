@@ -29,7 +29,7 @@
 
 ###
 
-<p align="left">Undergrad Sophomore...<br><br>- 📚 I'm currently learning blender..</p>
+<p align="left">Undergrad 3rd year...<br><br>- 📚 I'm currently learning Block Chain(Solidity)..</p>
 
 ###
 
