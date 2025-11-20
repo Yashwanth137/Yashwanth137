@@ -29,7 +29,7 @@
 
 ###
 
-<p align="left">Undergrad 3rd year...<br><br>- 📚 I'm currently learning Block Chain(Solidity)..</p>
+<p align="left">Undergrad Final year...<br><br>- 📚 I'm currently learning Block Chain(Solidity)..</p>
 
 ###
 
