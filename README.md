@@ -26,7 +26,7 @@
 ###
 
 <h3 align="left">👨‍💻 About Me</h3>
-###
+
 <p align="left">
 Final-year B.Tech CSE (AI-ML) student focused on AI Engineering, LLM systems, and backend development.<br>
 
