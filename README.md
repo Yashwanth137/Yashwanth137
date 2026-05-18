@@ -37,5 +37,5 @@ stack = [
 ```
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Yashwanth137&layout=compact&theme=dracula&hide_border=true"/>
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Yashwanth137&layout=compact&theme=dracula&hide_border=true" />
 </div>
