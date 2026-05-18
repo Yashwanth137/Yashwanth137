@@ -14,11 +14,11 @@
   <img src="https://img.shields.io/badge/X-1a1e23?style=for-the-badge&logo=x&logoColor=white"/>
 </a>
 
-<br><br>
+<br>
 
 <img src="https://komarev.com/ghpvc/?username=Yashwanth137&style=for-the-badge&color=2ea043&label=VISITORS"/>
 
-<br><br>
+<br>
 
 ## ❝ code · learn · build · repeat ❞
 
@@ -62,16 +62,3 @@ src="https://github-readme-streak-stats.herokuapp.com/?user=Yashwanth137&theme=r
 </tr>
 </table>
 
-<br><br>
-
-<table align="center" width="100%">
-<tr>
-<td align="center">
-
-| 💻 Code | 📚 Learn | 🚀 Build | ☕ Repeat |
-|:---:|:---:|:---:|:---:|
-| daily | constantly | impactful | forever |
-
-</td>
-</tr>
-</table>
