@@ -32,7 +32,7 @@ Final-year B.Tech CSE (AI-ML) student focused on AI Engineering, LLM systems, an
 
 🔹 Building production-oriented AI applications with RAG, semantic search, agentic workflows, and FastAPI. <br>
 🔹 Developed projects around resume intelligence, autonomous agents, and GenAI evaluation systems.<br>
-🔹 Working with vector databases, embeddings, retrieval pipelines, and scalable backend architectures.<br><br>
+🔹 Working with vector databases, embeddings, retrieval pipelines, and scalable backend architectures.<br>
 
  Tech Stack: Python • FastAPI • PostgreSQL • Qdrant • LangChain • Docker • React<br>
  Interested in AI/LLM Engineer, Backend, and Applied GenAI roles
