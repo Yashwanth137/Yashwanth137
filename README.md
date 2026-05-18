@@ -1,40 +1,65 @@
 <div align="center">
-  <img height="150" src="https://gifdb.com/images/high/lonely-anime-boy-hyouka-l8jseth2dqqb04u9.webp"/>
+  <img src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/gitreadme.gif" width="100%"/>
 </div>
 
 <div align="center">
-  <a href="https://www.linkedin.com/in/yashwanth-sukumar-vangala-6778b5255/">
-    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/>
-  </a>
-  <a href="https://twitter.com/yashwanth_7375">
-    <img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white"/>
-  </a>
-</div>
 
-<div align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=Yashwanth137.Yashwanth137"/>
+<a href="https://linkedin.com/in/yashvsukumar">
+  <img src="https://img.shields.io/badge/LinkedIn-1a1e23?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://twitter.com/yashvsukumar">
+  <img src="https://img.shields.io/badge/X-1a1e23?style=for-the-badge&logo=x&logoColor=white"/>
+</a>
+
+<br><br>
+
+<img src="https://komarev.com/ghpvc/?username=Yashwanth137&style=for-the-badge&color=2ea043&label=visitors"/>
+
+<br><br>
+
+`❝ code · learn · build · repeat ❞`
+
 </div>
 
 <br>
 
+<table>
+<tr>
+
+<td width="52%" valign="top">
+
 ```bash
+🔴 🟡 🟢
+
 $ whoami
 Yashwanth Sukumar
 
 $ focus
-AI systems
-RAG
+LLM systems • RAG
 Agent workflows
-Backend engineering
 
 $ stack
-Python | FastAPI | PostgreSQL
-Qdrant | LangChain | Docker | React
+Python • FastAPI
+PostgreSQL • Qdrant
+LangChain • Docker
+React
 
-$ status
+$ philosophy
 building > learning
 ```
 
-<div align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Yashwanth137&layout=compact&theme=dracula&hide_border=true"/>
-</div>
+</td>
+
+<td width="48%" align="center">
+
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Yashwanth137&layout=compact&theme=react&hide_border=true&bg_color=0D1117&text_color=c9d1d9&title_color=58a6ff"/>
+
+<br>
+
+<img src="https://github-readme-streak-stats.herokuapp.com/?user=Yashwanth137&theme=react&hide_border=true&background=0D1117"/>
+
+</td>
+
+</tr>
+</table>
