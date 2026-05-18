@@ -35,7 +35,6 @@ Final-year B.Tech CSE (AI-ML) student focused on AI Engineering, LLM systems, an
 🔹 Working with vector databases, embeddings, retrieval pipelines, and scalable backend architectures.<br>
 
  Tech Stack: Python • FastAPI • PostgreSQL • Qdrant • LangChain • Docker • React<br>
- Interested in AI/LLM Engineer, Backend, and Applied GenAI roles
 </p>
 
 ###
