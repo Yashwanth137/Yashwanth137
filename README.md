@@ -7,7 +7,7 @@
     <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/>
   </a>
   <a href="https://twitter.com/yashwanth_7375">
-    <img src="https://img.shields.io/badge/Twitter-1D9BF0?style=flat-square&logo=x&logoColor=white"/>
+    <img src="https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white"/>
   </a>
 </div>
 
@@ -17,25 +17,24 @@
 
 <br>
 
-<h3 align="left">👨‍💻 About Me</h3>
+```bash
+$ whoami
+Yashwanth Sukumar
 
-<p align="left">
+$ focus
+AI systems
+RAG
+Agent workflows
+Backend engineering
 
-Final-year B.Tech CSE (AI-ML). Building AI systems and backend applications.
+$ stack
+Python | FastAPI | PostgreSQL
+Qdrant | LangChain | Docker | React
 
-🔹 RAG, semantic search, agent workflows  
-🔹 Retrieval pipelines, embeddings, vector databases  
-🔹 FastAPI and scalable backend systems  
-
-</p>
-
-```python
-stack = [
-    "Python", "FastAPI", "PostgreSQL",
-    "Qdrant", "LangChain", "Docker", "React"
-]
+$ status
+building > learning
 ```
 
 <div align="center">
-  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Yashwanth137&layout=compact&theme=dracula&hide_border=true" />
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Yashwanth137&layout=compact&theme=dracula&hide_border=true"/>
 </div>
