@@ -1,83 +1,41 @@
 <div align="center">
-  <img height="150" src="https://gifdb.com/images/high/lonely-anime-boy-hyouka-l8jseth2dqqb04u9.webp"  />
+  <img height="150" src="https://gifdb.com/images/high/lonely-anime-boy-hyouka-l8jseth2dqqb04u9.webp"/>
 </div>
 
-###
-
 <div align="center">
-  <a href="https://www.linkedin.com/in/yashwanth-sukumar-vangala-6778b5255/" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="linkedin logo"  />
+  <a href="https://www.linkedin.com/in/yashwanth-sukumar-vangala-6778b5255/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white"/>
   </a>
-  <a href="https://twitter.com/yashwanth_7375" target="_blank">
-    <img src="https://img.shields.io/static/v1?message=Twitter&logo=twitter&label=&color=1DA1F2&logoColor=white&labelColor=&style=for-the-badge" height="25" alt="twitter logo"  />
+  <a href="https://twitter.com/yashwanth_7375">
+    <img src="https://img.shields.io/badge/Twitter-1D9BF0?style=flat-square&logo=x&logoColor=white"/>
   </a>
 </div>
 
-###
-
 <div align="center">
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=Yashwanth137.Yashwanth137&"  />
+  <img src="https://visitor-badge.laobi.icu/badge?page_id=Yashwanth137.Yashwanth137"/>
 </div>
 
-###
-
-<h1 align="center">Yo👋!</h1>
-
-###
+<br>
 
 <h3 align="left">👨‍💻 About Me</h3>
 
 <p align="left">
-Final-year B.Tech CSE (AI-ML) student focused on AI Engineering, LLM systems, and backend development.<br>
 
-🔹 Building production-oriented AI applications with RAG, semantic search, agentic workflows, and FastAPI. <br>
-🔹 Developed projects around resume intelligence, autonomous agents, and GenAI evaluation systems.<br>
-🔹 Working with vector databases, embeddings, retrieval pipelines, and scalable backend architectures.<br>
+Final-year B.Tech CSE (AI-ML). Building AI systems and backend applications.
 
- Tech Stack: Python • FastAPI • PostgreSQL • Qdrant • LangChain • Docker • React<br>
+🔹 RAG, semantic search, agent workflows  
+🔹 Retrieval pipelines, embeddings, vector databases  
+🔹 FastAPI and scalable backend systems  
+
 </p>
 
-###
-
-<h3 align="left">🛠 Language and tools</h3>
-
-###
-
-<div align="left">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg" height="40" alt="androidstudio logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" height="40" alt="c logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" height="40" alt="canva logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" height="40" alt="cplusplus logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="40" alt="css3 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" height="40" alt="figma logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height="40" alt="html5 logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="java logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="javascript logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" height="40" alt="jupyter logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" height="40" alt="mysql logo"  />
-  <img width="12" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="python logo"  />
-</div>
-
-###
-
-
-###
+```python
+stack = [
+    "Python", "FastAPI", "PostgreSQL",
+    "Qdrant", "LangChain", "Docker", "React"
+]
+```
 
 <div align="center">
-  <!--
-  <img src="https://github-readme-stats.vercel.app/api?username=Yashwanth137&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />-->
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Yashwanth137&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Yashwanth137&layout=compact&theme=dracula&hide_border=true"/>
 </div>
-
-###
