@@ -90,5 +90,5 @@ src="https://github-readme-streak-stats.herokuapp.com/?user=Yashwanth137&theme=r
 </div>
 -->
 <div align="center">
-  <img src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/output/snake.svg" alt="snake animation"/>
+  <img src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/output/pacman-contribution-graph-dark.svg" alt="pacman contribution graph"/>
 </div>
