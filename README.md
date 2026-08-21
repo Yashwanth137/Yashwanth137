@@ -65,7 +65,7 @@ building &gt; learning
 &gt; repeat
   
 
-                  [ systems &gt; syntax ]          
+              [ systems &gt; syntax ]            
   
 </pre>
 
