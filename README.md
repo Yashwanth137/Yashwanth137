@@ -54,8 +54,7 @@ building > learning
 
 <td align="center">
 
-<img height="220"
-src="https://github-readme-streak-stats.herokuapp.com/?user=Yashwanth137&theme=react&hide_border=true&background=0D1117"/>
+<img height="220" src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"/>
 
 </td>
 
