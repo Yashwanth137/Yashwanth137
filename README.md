@@ -23,7 +23,7 @@
 <table align="center" width="92%">
 <tr>
 <td valign="middle">
-<img align="right" src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg" width="52%"/>
+<img align="right" src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg" width="44%"/>
 
 ```bash
 🔴 🟡 🟢
