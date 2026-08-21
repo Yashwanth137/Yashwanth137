@@ -45,7 +45,7 @@ Python • FastAPI • PostgreSQL
 Qdrant • LangChain • Docker • React
 
 $ philosophy
-building &gt; learning                        
+building &gt; learning                                 
 </pre>
 
 </td>
@@ -65,7 +65,7 @@ building &gt; learning
 &gt; repeat
   
 
-                  [ systems &gt; syntax ]                  
+                  [ systems &gt; syntax ]              
   
 </pre>
 
