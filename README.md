@@ -55,7 +55,7 @@ building > learning
 <td valign="top">
   <img
     height="315"
-    src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-ratio.svg"
+    src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"
   />
 </td>
 
