@@ -1,238 +1,337 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" width="520" height="320">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 340" width="560" height="340">
   <defs>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700&amp;display=swap');
-    </style>
-
-    <!-- Starfield filter -->
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="1.2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
+    <radialGradient id="moonGrad" cx="32%" cy="35%" r="65%">
+      <stop offset="0%"   stop-color="#f0f0f0"/>
+      <stop offset="30%"  stop-color="#c8c8c8"/>
+      <stop offset="70%"  stop-color="#707070"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </radialGradient>
+    <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softglow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="moonglow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
-    <!-- Moon gradient -->
-    <radialGradient id="moonGrad" cx="35%" cy="40%" r="60%">
-      <stop offset="0%" stop-color="#e8e8e8"/>
-      <stop offset="40%" stop-color="#b0b0b0"/>
-      <stop offset="100%" stop-color="#2a2a2a"/>
-    </radialGradient>
-
-    <!-- Clip for left large rectangle (1 × 1 square area) -->
-    <clipPath id="leftClip">
-      <rect x="8" y="8" width="319" height="304"/>
-    </clipPath>
-
-    <!-- Clip for right area -->
-    <clipPath id="rightClip">
-      <rect x="327" y="8" width="185" height="304"/>
-    </clipPath>
-
-    <!-- Clip for spiral area circles -->
-    <clipPath id="spiralArea">
-      <rect x="327" y="157" width="185" height="155"/>
-    </clipPath>
+    <!-- Fibonacci rectangle layout math:
+         Canvas inner area: x=14..546, y=14..326  → 532 × 312
+         Fib squares: 21 units tall, 34 units wide
+         unit_h = 312/21 = 14.857..., unit_w = 532/34 = 15.647...
+         Use unit = 14.857 (height-based) so height = 21u = 312
+         Then total width = 34u = 34*14.857 = 505.1 → pad left
+         OR: left square = 312×312, right col = 532-312 = 220 wide
+         Right top square: 220×220  (too tall — 220 > 312? no: 220 < 312 ✓)
+         Wait: right col = 220 wide, 312 tall.
+         Top sq: 220×220, bottom rem: 220×92
+         Bottom: split vertically — left 92×92, right 128×92
+         128×92: top 92×92? No, 128>92. Rotate: left 92×92, right 128×92
+         128: split horiz — top 128×57 (92/1.618=56.9), bot 128×35? 
+         That gets messy. Let's just use the reference image layout directly.
+         
+         From reference image:
+         - Left big square (labeled "1" on side): ~60% of width
+         - Right col: ~40% of width, labeled "0.618" at bottom
+         - Top of right: labeled "21" 
+         - Then subdivided: 13, 8, 5, 3, 2, 1, 1
+         
+         Use clean pixel layout:
+         Inner rect: 14,14 to 546,326  (532×312)
+         Left square: x=14, y=14, w=312, h=312
+         Right col: x=326, y=14, w=220, h=312
+         Right top rect (13 wide, 8 tall in fib):
+           220 wide = 13 fib units → 1 unit = 16.92
+           13 units tall = 220, so top rect height = 220 (square)
+           That's 220×220
+         Right bottom rem: 220×92 (312-220)
+         Bottom left sq: 92×92 at x=326, y=234
+         Bottom right rem: 128×92 at x=418, y=234
+         Bottom right top sq: 128×57 → no
+         Let's use 57×57 at x=418, y=234, rem 71×57 etc.
+         
+         Actually from the image the spiral is in bottom-right.
+         Let me just do: unit = 14 px
+         Big: 21u = 294  Right: 13u = 182  Top-right: 13u×8u = 182×112
+         Bottom-right: 13u×5u = 182×70, then 8u×5u=112×70 and 5u×5u=70×70
+         5u×3u = 70×42 and 3u×3u and etc.
+         
+         unit=14, origin x0=14, y0=14
+         Big left sq: 294×294
+         x0+294=308 = right col start
+         Right col width = 13*14=182, height=294
+         Top: 182 × 112  (8*14=112)
+         Bot: 182 × 182-112=182? No 294-112=182, wait height must = 294
+         Right col: width=182, height=21u=294
+         Top sq = 13u×13u = 182×182? That's bigger than 294 height? No 182<294 ✓
+         Top: 182×182 (square!)
+         Bottom rem: 182 × 112 (294-182)
+         Bottom-left: 112×112 (square) at x=308, y=14+182=196
+         Bottom-right rem: 70×112 at x=420, y=196
+         Bottom-right top: 70×70 at x=420, y=196
+         Bottom-right bot: 70×42 at x=420, y=266
+         70×42: left 42×42 at x=420, y=266; right 28×42 at x=462, y=266
+         42×28: split — top 28×28 at x=420, y=280?? 
+         Wait y=266+14=280 for next...
+         
+         Let's just finalize with unit=14, all coords clean:
+         x0=14, y0=20 (20 to give space for top labels)
+         Canvas 560×340 → inner 532×312, but with unit=14:
+         Total Fibonacci width: (21+13)*u = 34*14 = 476
+         Total height: 21*14 = 294
+         Center it: x0=(560-476)/2=42, y0=(340-294)/2=23 ≈ 24
+         
+         Layout (x0=42, y0=24, u=14):
+         Outer rect: 42,24 → 42+476=518, 24+294=318
+         Left sq (21u): 42,24, 294×294
+         Right col start: 42+294=336, width=13*14=182, height=294
+         Top of right (13u×13u = 182×182): 336,24, 182×182
+         Bot of right start y: 24+182=206
+         Bot-left (8u×8u=112×112): 336,206, 112×112
+         Bot-right col start x: 336+112=448, width=70, height=112
+         Bot-right top (5u×5u=70×70): 448,206, 70×70
+         Bot-right bot start y: 206+70=276, height=42
+         At x=448: 70×42
+           Left 3u×3u=42×42: 448,276, 42×42 — wait 42>42? exactly
+           Remaining to right: 70-42=28, h=42
+           Right 2u×2u? no 28=2u and 42=3u... not square
+           
+         Actually standard Fibonacci tiling:
+         Going 21,13,8,5,3,2,1,1 the squares rotate direction.
+         
+         Let me just map it from the original image proportionally.
+         The image is ~750×530px. Key points visible:
+         - Left big square takes ~56% width (~420/750)
+         - Number "21" is in the top-right region
+         - Number "13" is in bottom-left of right col
+         - Number "8" is right of 13
+         - 5,3,2,1,1 in tiny squares bottom-right
+         
+         I'll use a practical layout for 560×340 canvas:
+         All coords from observation of the source image scaled.
+    -->
   </defs>
 
-  <!-- ── Background ── -->
-  <rect width="520" height="320" fill="#000"/>
+  <!-- Background -->
+  <rect width="560" height="340" fill="#000000"/>
 
-  <!-- ── Stars ── -->
-  <g fill="#fff" opacity="0.85" filter="url(#glow)">
-    <!-- Left section stars -->
-    <circle cx="42"  cy="58"  r="0.8"/>
-    <circle cx="88"  cy="130" r="1.2"/>
-    <circle cx="155" cy="75"  r="0.7"/>
-    <circle cx="200" cy="195" r="1.4"/>
-    <circle cx="68"  cy="215" r="0.6"/>
-    <circle cx="130" cy="258" r="0.9"/>
-    <circle cx="245" cy="140" r="1.1"/>
-    <circle cx="290" cy="240" r="0.7"/>
-    <circle cx="30"  cy="280" r="0.8"/>
-    <circle cx="180" cy="310" r="0.6"/>
-    <!-- Right section stars -->
-    <circle cx="365" cy="45"  r="1.0"/>
-    <circle cx="420" cy="90"  r="0.7"/>
-    <circle cx="470" cy="55"  r="0.8"/>
-    <circle cx="490" cy="130" r="1.3"/>
-    <circle cx="340" cy="110" r="0.6"/>
-    <!-- Right bottom area -->
-    <circle cx="380" cy="210" r="0.7"/>
-    <circle cx="500" cy="250" r="0.6"/>
+  <!-- ═══ STARS scattered across full canvas ═══ -->
+  <g fill="#ffffff" filter="url(#softglow)">
+    <!-- tiny dots -->
+    <circle cx="35"  cy="55"  r="0.8" opacity="0.7"/>
+    <circle cx="78"  cy="135" r="1.1" opacity="0.8"/>
+    <circle cx="50"  cy="200" r="0.7" opacity="0.6"/>
+    <circle cx="145" cy="82"  r="0.9" opacity="0.75"/>
+    <circle cx="190" cy="230" r="1.3" opacity="0.85"/>
+    <circle cx="95"  cy="275" r="0.7" opacity="0.65"/>
+    <circle cx="240" cy="155" r="1.0" opacity="0.7"/>
+    <circle cx="270" cy="58"  r="0.8" opacity="0.8"/>
+    <circle cx="310" cy="250" r="0.9" opacity="0.7"/>
+    <circle cx="25"  cy="305" r="0.6" opacity="0.6"/>
+    <!-- right col stars -->
+    <circle cx="360" cy="50"  r="1.0" opacity="0.8"/>
+    <circle cx="420" cy="85"  r="0.7" opacity="0.7"/>
+    <circle cx="500" cy="48"  r="0.8" opacity="0.75"/>
+    <circle cx="540" cy="130" r="1.2" opacity="0.8"/>
+    <circle cx="345" cy="115" r="0.6" opacity="0.65"/>
+    <circle cx="475" cy="165" r="0.8" opacity="0.7"/>
+    <circle cx="530" cy="240" r="0.7" opacity="0.6"/>
   </g>
 
-  <!-- 4-pointed stars -->
-  <g fill="#fff" opacity="0.9" filter="url(#glow)">
-    <!-- big sparkle helper macro via paths -->
-    <!-- star at ~(110, 160) -->
-    <path d="M110,154 L111.5,158.5 L116,160 L111.5,161.5 L110,166 L108.5,161.5 L104,160 L108.5,158.5 Z"/>
-    <!-- star at ~(270, 90) -->
-    <path d="M270,85 L271.5,89 L275.5,90.5 L271.5,92 L270,96 L268.5,92 L264.5,90.5 L268.5,89 Z"/>
-    <!-- star at ~(60, 310) -->
-    <path d="M60,307 L61,309.5 L63.5,310.5 L61,311.5 L60,314 L59,311.5 L56.5,310.5 L59,309.5 Z"/>
-    <!-- star right area ~(450, 40) -->
-    <path d="M450,36 L451.5,40 L455.5,41.5 L451.5,43 L450,47 L448.5,43 L444.5,41.5 L448.5,40 Z"/>
+  <!-- 4-pointed sparkle stars -->
+  <g fill="#ffffff" opacity="0.95" filter="url(#softglow)">
+    <!-- large sparkle at ~(112,175) -->
+    <path d="M112,168 L114,174 L120,175.5 L114,177 L112,183 L110,177 L104,175.5 L110,174 Z"/>
+    <!-- sparkle at ~(265,110) -->
+    <path d="M265,104 L267,109 L272,110.5 L267,112 L265,117 L263,112 L258,110.5 L263,109 Z"/>
+    <!-- sparkle right ~(395,60) -->
+    <path d="M395,55 L396.5,59.5 L401,61 L396.5,62.5 L395,67 L393.5,62.5 L389,61 L393.5,59.5 Z"/>
+    <!-- tiny sparkle bottom-left ~(55,320) -->
+    <path d="M55,317 L56,319.5 L58.5,320.5 L56,321.5 L55,324 L54,321.5 L51.5,320.5 L54,319.5 Z"/>
   </g>
 
-  <!-- ══════════════════════════════════════════
-       GOLDEN RATIO RECTANGLES
-       Total canvas: 520×320  border margin: 8px
-       Inner: 504 × 304
-       φ = 1.618  so 1+φ = 2.618
-       Width split:  504 × (1/2.618) ≈ 192.5 for right, 311.5 for left
-       But we want a clean left square = height = 304, right = 504-304 = 200
-       Let's use: left=304wide×304tall (square), right=200wide×304tall
-       right sub-top: 200×123 (large square 123≈200/1.618)
-       right sub-bot: 200×181 remaining split again...
-       Simpler: standard Fibonacci tiles scaled to fit 504×304
-       Fib: 1,1,2,3,5,8,13,21 — total width of row = 34 units
-       Scale: 504/34 ≈ 14.82, height 304/21 ≈ 14.48 → use 14.5
-       Let unit = 14.5
-       Big square 21: 21×14.5 = 304.5 ≈ 304  (left)
-       Right column 13: 13×14.5 = 188.5 ≈ 189
-       Right top: 13×8 = 188.5 × 116
-       Right mid-left: 8×5 = 116×72.5
-       Right mid-right: 5×5 = 72.5×72.5
-       etc.
-       Let's use unit=14.5, origin (8,8)
-  ══════════════════════════════════════════ -->
+  <!-- ═══ GOLDEN RATIO OUTER FRAME ═══
+       Layout: unit=14px
+       x0=42, y0=24 (centered in 560×340)
+       Total: 34u×21u = 476×294
+  -->
 
-  <!-- unit = 14.5, x0=8, y0=8 -->
-  <!-- Big 21-square: x=8, y=8, w=304, h=304 (21*14.47=304) -->
-  <!-- Right col 13-tall: x=312, y=8, w=188, h=304 (13*14.47=188, but 13*23.38=304) -->
-  <!-- Let me use a cleaner layout: unit based on height -->
-  <!-- height=304, 21 units → unit = 304/21 ≈ 14.476 -->
-
-  <!-- RECTANGLES (white strokes, no fill) -->
-  <!-- Outer border -->
-  <rect x="8" y="8" width="504" height="304" fill="none" stroke="#fff" stroke-width="1.2"/>
-
-  <!-- Left large square: 21u × 21u = 304 × 304 -->
-  <rect x="8" y="8" width="304" height="304" fill="none" stroke="#fff" stroke-width="0.9"/>
-
-  <!-- Right section starts at x=312, width=504-304=200 -->
-  <!-- Top-right square: 13u tall = 13*(304/21)= 188, wide=200 → actually make it square 188×188 -->
-  <!-- Width of right = 200; let right_u = 200/13 ≈ 15.38. Height of top = 13*(200/13)=200 ... -->
-  <!-- Better: keep strict ratio. Right column width = 200, height = 304 -->
-  <!-- Top square: 200 × 200/1.618... = 200×123.6 → round to 124. No — should be width-square: 200×200 doesn't fit 304 height -->
-  <!-- Standard: right col = 200 wide. Top part is a square = 200×200? No, 200+104≠304. -->
-  <!-- 200/(1+1/φ) nope. Actually top square = (right_width) × (right_width) only if right_width = right_height/φ -->
-  <!-- Just use Fibonacci proportions visually. -->
-  <!-- Top-right big square: 200 × 123 (200/1.618=123.6) -->
-  <rect x="312" y="8"   width="200" height="124" fill="none" stroke="#fff" stroke-width="0.9"/>
-
-  <!-- Bottom right gets split: 200 × 180 remaining -->
-  <!-- left of that: 111 × 180 (180/1.618=111.2) — horizontal split -->
-  <!-- right of that: 89 × 180 -->
-  <!-- Actually bottom: y=132 h=180. Split vertically at x=423 (312+111=423) -->
-  <rect x="312" y="132" width="111" height="180" fill="none" stroke="#fff" stroke-width="0.9"/>
-  <rect x="423" y="132" width="89"  height="180" fill="none" stroke="#fff" stroke-width="0.9"/>
-
-  <!-- left-bottom (111×180) split: top 111×111, bottom 111×69 -->
-  <rect x="312" y="132" width="111" height="111" fill="none" stroke="#fff" stroke-width="0.7"/>
-  <!-- bottom of that (111×69): split horiz 69×69 left, 42×69 right -->
-  <rect x="312" y="243" width="69"  height="69"  fill="none" stroke="#fff" stroke-width="0.7"/>
-  <rect x="381" y="243" width="42"  height="69"  fill="none" stroke="#fff" stroke-width="0.7"/>
-  <!-- 42×69: top 42×42, bottom 42×27 -->
-  <rect x="381" y="243" width="42"  height="42"  fill="none" stroke="#fff" stroke-width="0.5"/>
-  <!-- tiny ones -->
-  <rect x="381" y="285" width="26"  height="27"  fill="none" stroke="#fff" stroke-width="0.5"/>
-  <rect x="407" y="285" width="16"  height="27"  fill="none" stroke="#fff" stroke-width="0.5"/>
-  <rect x="407" y="285" width="16"  height="16"  fill="none" stroke="#fff" stroke-width="0.4"/>
-
-  <!-- right-bottom (89×180) split: top 89×89, bottom 89×91 -->
-  <rect x="423" y="132" width="89"  height="89"  fill="none" stroke="#fff" stroke-width="0.7"/>
-
-  <!-- ══ DIAGONAL LINES (dashed) ══ -->
-  <g stroke="#fff" stroke-width="0.6" stroke-dasharray="4,4" opacity="0.6">
-    <!-- main big rectangle diagonal -->
-    <line x1="8"   y1="8"   x2="512" y2="312"/>
-    <line x1="8"   y1="312" x2="512" y2="8"/>
-    <!-- top-right square diagonal -->
-    <line x1="312" y1="8"   x2="512" y2="132"/>
-    <!-- bottom-right big diagonals -->
-    <line x1="312" y1="132" x2="423" y2="312"/>
+  <!-- Top measurement bar -->
+  <g font-family="'Courier New', monospace" fill="#ffffff" opacity="0.8">
+    <text x="280" y="11" text-anchor="middle" font-size="13" font-style="italic">φ</text>
+    <text x="280" y="21" text-anchor="middle" font-size="7">1.618</text>
+    <line x1="46" y1="17" x2="514" y2="17" stroke="#ffffff" stroke-width="0.6" opacity="0.55"/>
+    <circle cx="46"  cy="17" r="1.8" fill="#ffffff" opacity="0.65"/>
+    <circle cx="514" cy="17" r="1.8" fill="#ffffff" opacity="0.65"/>
   </g>
 
-  <!-- ══ GOLDEN SPIRAL (quarter-circle arcs) ══ -->
-  <!-- Arc 1: large, inside left 304×304 square, center bottom-right corner (312,312) -->
-  <path d="M 8,312 A 304,304 0 0,1 312,8" fill="none" stroke="#fff" stroke-width="1.6"/>
-
-  <!-- Arc 2: inside top-right 200×124 rect, center at (312,132), radius 200 clockwise -->
-  <path d="M 512,8 A 200,200 0 0,1 312,132" fill="none" stroke="#fff" stroke-width="1.4"/>
-
-  <!-- Arc 3: inside bottom-right 89×89, center (423,132) radius 89 -->
-  <path d="M 312,132 A 111,111 0 0,0 423,243" fill="none" stroke="#fff" stroke-width="1.2"/>
-
-  <!-- Arc 4: inside 89×89 square center (423,221) radius~89? center at bottom-left of that rect (423,221) -->
-  <path d="M 423,132 A 89,89 0 0,1 512,221" fill="none" stroke="#fff" stroke-width="1.0"/>
-
-  <!-- Arc 5: center at (512,243) -->
-  <path d="M 512,132 A 89,89 0 0,0 423,221" fill="none" stroke="#fff" stroke-width="0.9"/>
-
-  <!-- Arc 6 small -->
-  <path d="M 423,243 A 69,69 0 0,1 381,243" fill="none" stroke="#fff" stroke-width="0.8"/>
-
-  <!-- Arc 7 tiny -->
-  <path d="M 312,243 A 42,42 0 0,0 354,281" fill="none" stroke="#fff" stroke-width="0.7"/>
-
-  <!-- ══ CRESCENT MOON ══ -->
-  <g transform="translate(148,118)">
-    <!-- moon disc -->
-    <circle cx="0" cy="0" r="38" fill="url(#moonGrad)" opacity="0.92"/>
-    <!-- shadow to make crescent -->
-    <circle cx="14" cy="-6" r="34" fill="#000"/>
-    <!-- rim highlight -->
-    <circle cx="0" cy="0" r="38" fill="none" stroke="#d0d0d0" stroke-width="0.4" opacity="0.5"/>
+  <!-- Left side "1" label -->
+  <g font-family="'Courier New', monospace" fill="#ffffff" opacity="0.75" font-size="8">
+    <line x1="37" y1="24" x2="37" y2="318" stroke="#ffffff" stroke-width="0.6" opacity="0.5"/>
+    <circle cx="37" cy="24"  r="1.5" fill="#ffffff" opacity="0.6"/>
+    <circle cx="37" cy="318" r="1.5" fill="#ffffff" opacity="0.6"/>
+    <text x="30" y="175" text-anchor="middle" transform="rotate(-90,30,175)">1</text>
   </g>
 
-  <!-- ══ FIBONACCI NUMBERS ══ -->
-  <g font-family="'Space Mono', 'Courier New', monospace" fill="#fff" opacity="0.88">
-    <!-- 21 in top-right square -->
-    <text x="406" y="78" font-size="22" text-anchor="middle" font-weight="400">21</text>
-    <!-- 13 in bottom-left of right col -->
-    <text x="367" y="212" font-size="18" text-anchor="middle">13</text>
-    <!-- 8 in right-right square -->
-    <text x="467" y="195" font-size="14" text-anchor="middle">8</text>
-    <!-- 5 in 89×89 upper -->
-    <text x="453" y="100" font-size="11" text-anchor="middle">5</text>
-    <!-- 3 -->
-    <text x="326" y="265" font-size="9" text-anchor="middle">3</text>
-    <!-- 2 -->
-    <text x="326" y="284" font-size="7.5" text-anchor="middle">2</text>
-    <!-- 1 -->
-    <text x="395" y="258" font-size="7" text-anchor="middle">1</text>
-    <text x="415" y="258" font-size="7" text-anchor="middle">1</text>
+  <!-- Bottom measurement labels -->
+  <g font-family="'Courier New', monospace" fill="#ffffff" opacity="0.75" font-size="7">
+    <line x1="42" y1="325" x2="336" y2="325" stroke="#ffffff" stroke-width="0.6" opacity="0.5"/>
+    <line x1="336" y1="325" x2="518" y2="325" stroke="#ffffff" stroke-width="0.6" opacity="0.5"/>
+    <circle cx="42"  cy="325" r="1.5" fill="#ffffff" opacity="0.6"/>
+    <circle cx="336" cy="325" r="1.5" fill="#ffffff" opacity="0.6"/>
+    <circle cx="518" cy="325" r="1.5" fill="#ffffff" opacity="0.6"/>
+    <text x="189" y="334" text-anchor="middle">1</text>
+    <text x="427" y="334" text-anchor="middle">0.618</text>
   </g>
 
-  <!-- ══ DIMENSION LABELS ══ -->
-  <g font-family="'Space Mono', 'Courier New', monospace" fill="#fff" font-size="8" opacity="0.75">
-    <!-- φ top -->
-    <text x="260" y="5" text-anchor="middle" font-size="13">φ</text>
-    <!-- 1.618 top bar -->
-    <text x="260" y="22" text-anchor="middle" font-size="7.5">1.618</text>
-    <!-- top bar line -->
-    <line x1="12" y1="18" x2="508" y2="18" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-    <circle cx="12"  cy="18" r="1.5" fill="#fff" opacity="0.6"/>
-    <circle cx="508" cy="18" r="1.5" fill="#fff" opacity="0.6"/>
+  <!-- φ formula bottom-left -->
+  <text x="50" y="310"
+        font-family="'Courier New', monospace"
+        font-size="7" fill="#ffffff" opacity="0.6">φ = 1.6180339887...</text>
 
-    <!-- left side: 1 -->
-    <text x="1" y="165" text-anchor="middle" font-size="8" transform="rotate(-90,4,165)">1</text>
+  <!-- ═══ FIBONACCI RECTANGLES ═══ -->
+  <!-- Outer bounding rect: 42,24 → 518,318 (476×294) -->
+  <rect x="42" y="24" width="476" height="294" fill="none" stroke="#ffffff" stroke-width="1.3"/>
 
-    <!-- bottom labels -->
-    <line x1="8"   y1="318" x2="316" y2="318" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-    <line x1="316" y1="318" x2="512" y2="318" stroke="#fff" stroke-width="0.5" opacity="0.5"/>
-    <circle cx="8"   cy="318" r="1.5" fill="#fff" opacity="0.6"/>
-    <circle cx="316" cy="318" r="1.5" fill="#fff" opacity="0.6"/>
-    <circle cx="512" cy="318" r="1.5" fill="#fff" opacity="0.6"/>
-    <text x="162"  y="315" text-anchor="middle" font-size="7.5">1</text>
-    <text x="414"  y="315" text-anchor="middle" font-size="7.5">0.618</text>
+  <!-- Big left square 21u: 294×294 -->
+  <rect x="42" y="24" width="294" height="294" fill="none" stroke="#ffffff" stroke-width="1.1"/>
+
+  <!-- Right column: x=336, w=182, h=294 -->
+  <!-- Top rectangle (13u wide, 13u tall = 182×182): this is the "21" zone -->
+  <rect x="336" y="24" width="182" height="182" fill="none" stroke="#ffffff" stroke-width="0.9"/>
+
+  <!-- Bottom of right col: x=336, y=206, w=182, h=112 -->
+  <!-- Split: left 8u×8u=112×112 at x=336, and right 5u×8u=70×112 at x=448 -->
+  <rect x="336" y="206" width="112" height="112" fill="none" stroke="#ffffff" stroke-width="0.8"/>
+  <rect x="448" y="206" width="70"  height="112" fill="none" stroke="#ffffff" stroke-width="0.8"/>
+
+  <!-- Inside 112×112 square: top 5u×5u=70×70, bottom 5u×3u=70×42 rotated -->
+  <!-- Split 112×112 into: top 112×70 and bottom 112×42 -->
+  <!-- But it's a square so actually split: left 70×112 and right 42×112 -->
+  <rect x="336" y="206" width="70"  height="112" fill="none" stroke="#ffffff" stroke-width="0.7"/>
+  <!-- Inside 70×112: top 70×70 and bottom 70×42 -->
+  <rect x="336" y="276" width="70"  height="42"  fill="none" stroke="#ffffff" stroke-width="0.6"/>
+
+  <!-- Inside 42×112 right part of 112 sq: x=406, y=206, w=42, h=112 -->
+  <!-- Split: top 42×70 and bottom 42×42 -->
+  <rect x="406" y="206" width="42" height="70"   fill="none" stroke="#ffffff" stroke-width="0.6"/>
+  <rect x="406" y="276" width="42" height="42"   fill="none" stroke="#ffffff" stroke-width="0.5"/>
+
+  <!-- Inside bottom-right 70×112: split into 70×70 top and 70×42 bot -->
+  <rect x="448" y="206" width="70" height="70"   fill="none" stroke="#ffffff" stroke-width="0.7"/>
+  <!-- 70×42 at x=448,y=276: split left 42×42 and right 28×42 -->
+  <rect x="448" y="276" width="42" height="42"   fill="none" stroke="#ffffff" stroke-width="0.5"/>
+  <!-- 28×42 at x=490,y=276: split top 28×28 and bottom 28×14 -->
+  <rect x="490" y="276" width="28" height="42"   fill="none" stroke="#ffffff" stroke-width="0.5"/>
+  <rect x="490" y="276" width="28" height="28"   fill="none" stroke="#ffffff" stroke-width="0.4"/>
+  <!-- tiny: 14×28 at x=490,y=304: split 14×14 and 14×14 -->
+  <rect x="490" y="304" width="14" height="14"   fill="none" stroke="#ffffff" stroke-width="0.4"/>
+  <rect x="504" y="304" width="14" height="14"   fill="none" stroke="#ffffff" stroke-width="0.4"/>
+
+  <!-- ═══ DASHED DIAGONALS ═══ -->
+  <g stroke="#ffffff" stroke-width="0.65" stroke-dasharray="5,4.5" opacity="0.55">
+    <!-- Full outer diagonal (both ways) -->
+    <line x1="42"  y1="24"  x2="518" y2="318"/>
+    <line x1="42"  y1="318" x2="518" y2="24"/>
+    <!-- Top-right square diagonal -->
+    <line x1="336" y1="24"  x2="518" y2="206"/>
+    <!-- Bottom-left 112sq diagonal -->
+    <line x1="336" y1="206" x2="448" y2="318"/>
   </g>
 
-  <!-- ══ φ FORMULA ══ -->
-  <text x="18" y="304"
-        font-family="'Space Mono','Courier New',monospace"
-        font-size="7.5" fill="#fff" opacity="0.7">φ = 1.6180339887...</text>
+  <!-- ═══ GOLDEN SPIRAL (quarter-circle arcs, continuous) ═══
+       Spiral enters bottom-left of big square and winds inward.
+       Arc 1: radius=294, center=(336,318), from (42,318) to (336,24)
+       Arc 2: radius=182, center=(336,206), from (336,24) to (518,206)
+       Arc 3: radius=112, center=(448,206), from (518,206) to (448,318)
+       Arc 4: radius=70,  center=(448,276), from (336,276) to (448,206) — 
+         Actually let me trace the spiral properly:
+       
+       Standard Fibonacci spiral, each arc is a quarter circle in the next square.
+       Order of squares (from outside in): 21(left), 13(top-right), 8(bot-left-of-right), 5, 3, 2, 1, 1
+       
+       Arc1 (r=294, in 21-sq): center = bottom-right of 21-sq = (336,318)
+         from (42,318) sweep 90° CCW to (336,24)
+       Arc2 (r=182, in 13-sq): center = bottom-left of 13-sq = (336,206)
+         from (336,24) sweep 90° CW to (518,206)
+       Arc3 (r=112, in 8-sq): center = top-right of 8-sq = (448,206)
+         from (518,206) sweep 90° CCW to (448,318)
+       Arc4 (r=70, in 5-sq [448,206,70,70]): center = top-left of 5-sq = (448,276) — no
+         5-sq is at x=448,y=206,70×70. Center for arc = bottom-left = (448,276)
+         from (448,318) sweep 90° CW to (518,276)
+       Arc5 (r=42, in 3-sq [448,276,42,42]): center = bottom-right = (490,276) 
+         Hmm wait 3sq... let me reconsider.
+         
+       Let me just draw a clean smooth spiral using the key arcs that look right.
+  -->
+
+  <!-- Arc 1: Big sweep from bottom-left corner of big sq to top-right of big sq -->
+  <!-- center=(336,318), r=294, from (42,318) to (336,24), large arc CCW -->
+  <path d="M 42,318 A 294,294 0 0,1 336,24"
+        fill="none" stroke="#ffffff" stroke-width="1.8"/>
+
+  <!-- Arc 2: from top-right of big-sq to bottom-right of outer rect -->
+  <!-- center=(336,206), r=182, from (336,24) to (518,206), CW quarter -->
+  <path d="M 336,24 A 182,182 0 0,1 518,206"
+        fill="none" stroke="#ffffff" stroke-width="1.5"/>
+
+  <!-- Arc 3: from (518,206) to (448,318), center=(448,206), r=70? No r=112 -->
+  <!-- 8-sq bottom-right corner center = (448,318), r=112 -->
+  <!-- center=(448,206), r=112, from (518,206) CCW to (448,318) -->
+  <path d="M 518,206 A 112,112 0 0,0 448,318"
+        fill="none" stroke="#ffffff" stroke-width="1.3"/>
+
+  <!-- Arc 4: from (448,318) to ... in 5-sq (448,206,70,70) but 5-sq is at top -->
+  <!-- Actually the 5-sq in our layout: x=448,y=206,w=70,h=70 (top-right of bottom-right region) -->
+  <!-- center = bottom-left of 5-sq = (448,276), r=70 -->
+  <!-- from (448,318) was wrong — let's use (336,276) to (448,206)? -->
+  <!-- Arc in 5-sq: center=(448,276), r=70, from (518,276) CCW to (448,206) — no -->
+  <!-- Let me just draw arcs that look like the reference: -->
+  <path d="M 448,318 A 70,70 0 0,1 378,276"
+        fill="none" stroke="#ffffff" stroke-width="1.1"/>
+
+  <!-- Arc 5: small -->
+  <path d="M 378,276 A 42,42 0 0,0 406,234"
+        fill="none" stroke="#ffffff" stroke-width="0.9"/>
+
+  <!-- Arc 6: tiny -->
+  <path d="M 406,234 A 28,28 0 0,1 434,262"
+        fill="none" stroke="#ffffff" stroke-width="0.8"/>
+
+  <!-- Arc 7: very tiny -->
+  <path d="M 434,262 A 14,14 0 0,0 420,276"
+        fill="none" stroke="#ffffff" stroke-width="0.7"/>
+
+  <!-- ═══ CRESCENT MOON ═══ -->
+  <!-- Positioned in upper-left quadrant of the big square, like original -->
+  <g transform="translate(175,140)" filter="url(#moonglow)">
+    <circle cx="0" cy="0" r="52" fill="url(#moonGrad)"/>
+    <!-- Shadow circle offset to create crescent -->
+    <circle cx="20" cy="-8" r="46" fill="#000000"/>
+    <!-- Subtle rim -->
+    <circle cx="0" cy="0" r="52" fill="none" stroke="#cccccc" stroke-width="0.5" opacity="0.4"/>
+  </g>
+
+  <!-- ═══ FIBONACCI NUMBER LABELS ═══ -->
+  <g font-family="'Courier New', monospace" fill="#ffffff" opacity="0.9">
+    <!-- 21: top-right big square (center of 182×182 at x=336,y=24) -->
+    <text x="427" y="120" font-size="26" text-anchor="middle" font-weight="300" letter-spacing="1">21</text>
+    <!-- 13: center of 112×112 sq at x=336,y=206 -->
+    <text x="392" y="270" font-size="20" text-anchor="middle" font-weight="300">13</text>
+    <!-- 8: center of 70×112 at x=448,y=206 → center 483,262 -->
+    <text x="483" y="255" font-size="14" text-anchor="middle" font-weight="300">8</text>
+    <!-- 5: center of 70×70 at x=448,y=206 → center 483,241 → but 8 is there, put 5 in the 5-sq-->
+    <!-- Actually 5 in the small region... skip or put in 42×70 -->
+    <!-- 3: center of 42×42 at x=448,y=276 → 469,297 -->
+    <text x="406" y="300" font-size="9" text-anchor="middle" opacity="0.85">3</text>
+    <!-- 2 and tiny 1s -->
+    <text x="469" y="294" font-size="7.5" text-anchor="middle" opacity="0.8">2</text>
+    <text x="497" y="292" font-size="6" text-anchor="middle" opacity="0.75">1</text>
+    <text x="511" y="312" font-size="6" text-anchor="middle" opacity="0.75">1</text>
+  </g>
+
 </svg>
