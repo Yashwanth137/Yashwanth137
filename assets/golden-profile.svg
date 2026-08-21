@@ -18,6 +18,10 @@
       <feGaussianBlur stdDeviation="2.5" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
+    <mask id="crescentMask">
+      <circle cx="0" cy="0" r="52" fill="white"/>
+      <circle cx="20" cy="-8" r="46" fill="black"/>
+    </mask>
 
     <!-- Fibonacci rectangle layout math:
          Canvas inner area: x=14..546, y=14..326  → 532 × 312
@@ -306,13 +310,11 @@
         fill="none" stroke="#ffffff" stroke-width="0.7"/>
 
   <!-- ═══ CRESCENT MOON ═══ -->
-  <!-- Positioned in upper-left quadrant of the big square, like original -->
   <g transform="translate(175,140)" filter="url(#moonglow)">
-    <circle cx="0" cy="0" r="52" fill="url(#moonGrad)"/>
-    <!-- Shadow circle offset to create crescent -->
-    <circle cx="20" cy="-8" r="46" fill="#000000"/>
-    <!-- Subtle rim -->
-    <circle cx="0" cy="0" r="52" fill="none" stroke="#cccccc" stroke-width="0.5" opacity="0.4"/>
+    <!-- Moon disc clipped to crescent shape via mask -->
+    <circle cx="0" cy="0" r="52" fill="url(#moonGrad)" mask="url(#crescentMask)"/>
+    <!-- Rim glow on the lit edge only -->
+    <circle cx="0" cy="0" r="52" fill="none" stroke="#e0e0e0" stroke-width="0.8" opacity="0.35" mask="url(#crescentMask)"/>
   </g>
 
   <!-- ═══ FIBONACCI NUMBER LABELS ═══ -->
