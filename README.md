@@ -48,11 +48,18 @@ $ philosophy
 building > learning
 ```
 
-</td> <td width="40"></td> <td align="center">
+</td> 
 
-<img height="220" src="https://github-readme-streak-stats.herokuapp.com/?user=Yashwanth137&theme=react&hide_border=true&background=0D1117"/>
+<td width="440" height="315" valign="middle">
+  <img
+    src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"
+    width="440"
+    height="315"
+  />
+</td>
+</tr> 
 
-</td> </tr> </table>
+</table>
 
 <br>
 
