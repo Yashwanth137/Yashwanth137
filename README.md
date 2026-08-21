@@ -50,13 +50,19 @@ building > learning
 
 </td> 
 
-<td width="440" height="315" valign="middle">
-  <img
-    src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"
-    width="440"
-    height="315"
-  />
+<td width="50%" valign="middle" align="center">
+
+```text
+> code
+> learn
+> build
+> repeat
+
+[ systems > syntax ]
+
 </td>
+```
+
 </tr> 
 
 </table>
