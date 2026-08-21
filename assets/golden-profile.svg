@@ -1,0 +1,65 @@
+<svg width="500" height="309"
+     viewBox="0 0 500 309"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <g fill="none"
+     stroke="#ffffff"
+     stroke-width="2"
+     stroke-linejoin="round">
+
+    <!-- Golden ratio rectangle -->
+    <rect x="1" y="1" width="498" height="307"/>
+
+    <!-- Fibonacci squares -->
+    <path d="
+      M 0 0
+      H 309 V 309 H 0 Z
+
+      M 309 0
+      H 500 V 191 H 309 Z
+
+      M 309 191
+      H 427 V 309 H 309 Z
+
+      M 427 191
+      H 500 V 264 H 427 Z
+
+      M 427 264
+      H 472 V 309 H 427 Z
+
+      M 472 264
+      H 500 V 292 H 472 Z
+
+      M 472 292
+      H 489 V 309 H 472 Z
+
+      M 489 292
+      H 500 V 303 H 489 Z
+    "/>
+
+    <!-- Golden spiral -->
+    <path d="
+      M 309 309
+      A 309 309 0 0 1 0 0
+
+      M 0 0
+      A 191 191 0 0 1 191 191
+
+      M 191 191
+      A 118 118 0 0 1 309 73
+
+      M 309 73
+      A 73 73 0 0 1 382 146
+
+      M 382 146
+      A 45 45 0 0 1 337 191
+
+      M 337 191
+      A 28 28 0 0 1 365 219
+
+      M 365 219
+      A 17 17 0 0 1 348 236
+    "/>
+
+  </g>
+</svg>
