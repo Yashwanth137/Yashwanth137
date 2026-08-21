@@ -48,10 +48,6 @@ building > learning
 ```
 
 </td>
-<td width="24"></td>
-<td valign="middle" style="background:#0d1117; border-radius:12px; padding:8px; border:1px solid #2d333b;">
-  <img height="300" src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"/>
-</td>
 </tr>
 </table>
 
