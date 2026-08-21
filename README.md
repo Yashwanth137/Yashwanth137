@@ -52,10 +52,11 @@ building > learning
 
 <td width="40"></td>
 
-<td align="center">
-
-<img height="220" src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"/>
-
+<td valign="top">
+  <img
+    height="315"
+    src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-ratio.svg"
+  />
 </td>
 
 </tr>
