@@ -26,12 +26,12 @@
 
 <br>
 
-<table align="center">
+<table align="center" width="92%" cellspacing="0" cellpadding="0">
 <tr>
 
-<td valign="top">
+<td width="50%" valign="top" bgcolor="#1a1e23" style="padding:24px; border-radius:8px;">
 
-```bash
+<pre>
 🔴 🟡 🟢
 
 $ whoami
@@ -45,26 +45,25 @@ Python • FastAPI • PostgreSQL
 Qdrant • LangChain • Docker • React
 
 $ philosophy
-building > learning
-```
-
-</td> 
-
-<td width="50%" valign="middle" align="center">
-
-```text
-> code
-> learn
-> build
-> repeat
-
-[ systems > syntax ]
+building &gt; learning
+</pre>
 
 </td>
-```
 
-</tr> 
+<td width="50%" valign="middle" align="center" bgcolor="#1a1e23" style="padding:24px; border-radius:8px;">
 
+<pre>
+&gt; code
+&gt; learn
+&gt; build
+&gt; repeat
+
+[ systems &gt; syntax ]
+</pre>
+
+</td>
+
+</tr>
 </table>
 
 <br>
