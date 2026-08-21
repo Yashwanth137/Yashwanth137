@@ -20,7 +20,7 @@
 
 <br>
 
-## ❝ code · learn · build · repeat ❞
+## ❝ it's always you.❞
 
 </div>
 
@@ -45,7 +45,7 @@ Python • FastAPI • PostgreSQL
 Qdrant • LangChain • Docker • React
 
 $ philosophy
-building &gt; learning
+building &gt; learning                        
 </pre>
 
 </td>
@@ -54,11 +54,19 @@ building &gt; learning
 
 <pre>
 &gt; code
+  
+  
 &gt; learn
+  
+  
 &gt; build
+  
+  
 &gt; repeat
+  
 
-[ systems &gt; syntax ]
+                  [ systems &gt; syntax ]                  
+  
 </pre>
 
 </td>
