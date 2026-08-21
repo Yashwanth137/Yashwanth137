@@ -26,14 +26,12 @@
 
 <br>
 
-<table align="center">
+<table align="center" style="border-collapse:separate; border-spacing:16px;">
 <tr>
-
-<td valign="top">
-
+<td valign="middle" style="background:#1a1e23; border-radius:12px; padding:24px 28px; border:1px solid #2d333b;">
+  
 ```bash
 🔴 🟡 🟢
-
 $ whoami
 Yashwanth Sukumar
 
@@ -46,19 +44,14 @@ Qdrant • LangChain • Docker • React
 
 $ philosophy
 building > learning
+
 ```
 
 </td>
-
-<td width="40"></td>
-
-<td valign="top">
-  <img
-    height="315"
-    src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"
-  />
+<td width="24"></td>
+<td valign="middle" style="background:#0d1117; border-radius:12px; padding:8px; border:1px solid #2d333b;">
+  <img height="300" src="https://raw.githubusercontent.com/Yashwanth137/Yashwanth137/main/assets/golden-profile.svg"/>
 </td>
-
 </tr>
 </table>
 
