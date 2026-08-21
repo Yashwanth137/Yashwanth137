@@ -1,65 +1,106 @@
-<svg width="500" height="309"
-     viewBox="0 0 500 309"
-     xmlns="http://www.w3.org/2000/svg">
+<svg
+  width="440"
+  height="315"
+  viewBox="0 0 440 315"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g
+    fill="none"
+    stroke="#ffffff"
+    stroke-width="1.5"
+    stroke-linejoin="round"
+    opacity="0.95"
+  >
 
-  <g fill="none"
-     stroke="#ffffff"
-     stroke-width="2"
-     stroke-linejoin="round">
+    <!-- Outer frame -->
+    <rect x="8" y="8" width="424" height="299"/>
 
-    <!-- Golden ratio rectangle -->
-    <rect x="1" y="1" width="498" height="307"/>
+    <!-- Golden rectangle -->
+    <rect x="8" y="28" width="424" height="262"/>
 
-    <!-- Fibonacci squares -->
+    <!-- Fibonacci construction -->
     <path d="
-      M 0 0
-      H 309 V 309 H 0 Z
+      M 270 28
+      V 290
 
-      M 309 0
-      H 500 V 191 H 309 Z
+      M 270 180
+      H 422
 
-      M 309 191
-      H 427 V 309 H 309 Z
+      M 352 180
+      V 290
 
-      M 427 191
-      H 500 V 264 H 427 Z
+      M 352 243
+      H 422
 
-      M 427 264
-      H 472 V 309 H 427 Z
+      M 390 243
+      V 290
 
-      M 472 264
-      H 500 V 292 H 472 Z
+      M 390 273
+      H 422
 
-      M 472 292
-      H 489 V 309 H 472 Z
-
-      M 489 292
-      H 500 V 303 H 489 Z
+      M 409 273
+      V 290
     "/>
 
     <!-- Golden spiral -->
     <path d="
-      M 309 309
-      A 309 309 0 0 1 0 0
+      M 8 28
+      A 262 262 0 0 1 270 290
 
-      M 0 0
-      A 191 191 0 0 1 191 191
+      M 270 290
+      A 162 162 0 0 1 432 128
 
-      M 191 191
-      A 118 118 0 0 1 309 73
+      M 432 128
+      A 100 100 0 0 1 332 28
 
-      M 309 73
-      A 73 73 0 0 1 382 146
+      M 332 28
+      A 62 62 0 0 1 270 90
 
-      M 382 146
-      A 45 45 0 0 1 337 191
+      M 270 90
+      A 38 38 0 0 1 308 128
 
-      M 337 191
-      A 28 28 0 0 1 365 219
+      M 308 128
+      A 24 24 0 0 1 284 152
 
-      M 365 219
-      A 17 17 0 0 1 348 236
+      M 284 152
+      A 15 15 0 0 1 299 167
     "/>
 
+    <!-- Construction diagonals -->
+    <path
+      d="M 8 28 L 270 290
+         M 270 28 L 432 128
+         M 352 180 L 422 250"
+      opacity="0.35"
+    />
+
+  </g>
+
+  <!-- Technical labels -->
+  <g
+    fill="#ffffff"
+    font-family="monospace"
+    font-size="10"
+    opacity="0.7"
+  >
+    <text x="20" y="22">GOLDEN RATIO</text>
+    <text x="350" y="22">φ = 1.618</text>
+
+    <text x="285" y="174">21</text>
+    <text x="365" y="236">13</text>
+    <text x="398" y="267">8</text>
+    <text x="412" y="285">5</text>
+
+    <text x="20" y="302">FIBONACCI / PROPORTION / BALANCE</text>
+  </g>
+
+  <!-- Phi marker -->
+  <g
+    fill="#ffffff"
+    font-family="serif"
+    font-size="18"
+    opacity="0.9"
+  >
+    <text x="395" y="302">φ</text>
   </g>
 </svg>
