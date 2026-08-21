@@ -116,8 +116,7 @@
     -->
   </defs>
 
-  <!-- Background -->
-  <rect width="560" height="340" fill="#000000"/>
+  <!-- Background: transparent -->
 
   <!-- ═══ STARS scattered across full canvas ═══ -->
   <g fill="#ffffff" filter="url(#softglow)">
