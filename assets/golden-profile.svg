@@ -1,106 +1,138 @@
-<svg
-  width="440"
-  height="315"
-  viewBox="0 0 440 315"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <g
-    fill="none"
-    stroke="#ffffff"
-    stroke-width="1.5"
-    stroke-linejoin="round"
-    opacity="0.95"
-  >
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="440" height="315" viewBox="0 0 440 315">
 
-    <!-- Outer frame -->
+  <g fill="none" stroke="#fff" stroke-width="1.5"
+     stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- Golden-ratio construction -->
     <rect x="8" y="8" width="424" height="299"/>
-
-    <!-- Golden rectangle -->
-    <rect x="8" y="28" width="424" height="262"/>
-
-    <!-- Fibonacci construction -->
     <path d="
-      M 270 28
-      V 290
-
-      M 270 180
-      H 422
-
-      M 352 180
-      V 290
-
-      M 352 243
-      H 422
-
-      M 390 243
-      V 290
-
-      M 390 273
-      H 422
-
-      M 409 273
-      V 290
-    "/>
+      M270 8V307
+      M270 185H432
+      M350 185V307
+      M350 258H432
+      M397 258V307
+      M397 287H432
+      M415 287V307"/>
 
     <!-- Golden spiral -->
     <path d="
-      M 8 28
-      A 262 262 0 0 1 270 290
+      M8 8
+      A262 262 0 0 1 270 270
+      A162 162 0 0 1 432 108
+      A100 100 0 0 1 332 8
+      A62 62 0 0 1 270 70
+      A38 38 0 0 1 308 108
+      A24 24 0 0 1 284 132"/>
 
-      M 270 290
-      A 162 162 0 0 1 432 128
+    <!-- Fibonacci construction guides -->
+    <g opacity=".28" stroke-dasharray="4 5">
+      <path d="M8 8L270 307"/>
+      <path d="M270 8L432 185"/>
+      <path d="M350 185L432 267"/>
+      <path d="M397 258L432 293"/>
+      <path d="M139 8V307"/>
+      <path d="M8 157H270"/>
+    </g>
 
-      M 432 128
-      A 100 100 0 0 1 332 28
+    <!-- Squirtle-like line portrait -->
+    <g stroke-width="1.8">
 
-      M 332 28
-      A 62 62 0 0 1 270 90
+      <!-- head -->
+      <path d="
+        M74 157
+        C74 91 116 48 183 45
+        C249 42 286 86 286 157
+        C286 207 253 236 181 238
+        C110 238 74 207 74 157Z"/>
 
-      M 270 90
-      A 38 38 0 0 1 308 128
+      <!-- left eye -->
+      <ellipse cx="137" cy="117" rx="27" ry="34"/>
+      <ellipse cx="224" cy="117" rx="27" ry="34"/>
 
-      M 308 128
-      A 24 24 0 0 1 284 152
+      <!-- eye highlights -->
+      <ellipse cx="128" cy="105" rx="9" ry="13"/>
+      <ellipse cx="214" cy="105" rx="9" ry="13"/>
 
-      M 284 152
-      A 15 15 0 0 1 299 167
-    "/>
+      <!-- eye bridge -->
+      <path d="M164 115C177 108 184 108 197 115"/>
 
-    <!-- Construction diagonals -->
-    <path
-      d="M 8 28 L 270 290
-         M 270 28 L 432 128
-         M 352 180 L 422 250"
-      opacity="0.35"
-    />
+      <!-- nose -->
+      <path d="M177 139l4 4m10-4l-4 4"/>
 
+      <!-- smile -->
+      <path d="
+        M112 161
+        C132 169 151 164 181 165
+        C211 164 233 169 252 161
+        C251 190 214 204 181 204
+        C148 204 113 190 112 161Z"/>
+
+      <!-- mouth split -->
+      <path d="M147 180C169 177 194 178 218 181"/>
+
+      <!-- left arm -->
+      <path d="
+        M83 205
+        C54 213 38 235 30 264
+        C50 270 73 259 94 237
+        C105 225 106 211 83 205Z"/>
+
+      <!-- right arm -->
+      <path d="
+        M279 205
+        C308 213 324 235 332 264
+        C312 270 289 259 268 237
+        C257 225 256 211 279 205Z"/>
+
+      <!-- shell/body -->
+      <path d="
+        M94 225
+        C119 249 145 258 181 258
+        C217 258 243 249 268 225
+        C291 245 302 273 305 297
+        H57
+        C60 273 71 245 94 225Z"/>
+
+      <!-- shell panels -->
+      <path d="M181 258V297"/>
+      <path d="M94 225C112 246 129 265 139 297"/>
+      <path d="M268 225C250 246 233 265 223 297"/>
+
+      <!-- water -->
+      <path d="
+        M22 275
+        C43 268 58 282 78 275
+        C98 268 114 282 135 275
+        C156 268 173 282 194 275
+        C215 268 232 282 253 275
+        C274 268 291 282 312 275
+        C333 268 349 282 370 275
+        C391 268 407 282 426 275"/>
+      <path d="
+        M47 292
+        C67 286 84 298 104 292
+        C124 286 142 298 162 292
+        C182 286 200 298 220 292
+        C240 286 258 298 278 292
+        C298 286 316 298 336 292"/>
+
+    </g>
   </g>
 
   <!-- Technical labels -->
-  <g
-    fill="#ffffff"
-    font-family="monospace"
-    font-size="10"
-    opacity="0.7"
-  >
-    <text x="20" y="22">GOLDEN RATIO</text>
-    <text x="350" y="22">φ = 1.618</text>
+  <g fill="#fff" font-family="monospace" font-size="9" opacity=".72">
+    <text x="18" y="23">GOLDEN / PROFILE</text>
+    <text x="350" y="23">φ = 1.618</text>
 
-    <text x="285" y="174">21</text>
-    <text x="365" y="236">13</text>
-    <text x="398" y="267">8</text>
-    <text x="412" y="285">5</text>
+    <text x="282" y="180">21</text>
+    <text x="360" y="252">13</text>
+    <text x="402" y="281">8</text>
+    <text x="418" y="302">5</text>
 
-    <text x="20" y="302">FIBONACCI / PROPORTION / BALANCE</text>
+    <text x="18" y="301">// proportion</text>
+    <text x="105" y="301">// balance</text>
+    <text x="190" y="301">// harmony</text>
   </g>
 
-  <!-- Phi marker -->
-  <g
-    fill="#ffffff"
-    font-family="serif"
-    font-size="18"
-    opacity="0.9"
-  >
-    <text x="395" y="302">φ</text>
-  </g>
 </svg>
