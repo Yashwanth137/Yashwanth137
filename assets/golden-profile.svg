@@ -1,45 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg"
-     width="440" height="315"
+     width="440"
+     height="315"
      viewBox="0 0 440 315">
 
   <g fill="none"
-     stroke="#fff"
+     stroke="#ffffff"
      stroke-width="2"
      stroke-linecap="round"
      stroke-linejoin="round">
 
-    <!-- Golden rectangle -->
-    <rect x="0" y="0" width="440" height="272"/>
+    <!-- True golden rectangle: 440 / 1.618 ≈ 272 -->
+    <!-- vertically centered -->
+    <rect x="0" y="21.5" width="440" height="272"/>
 
-    <!-- Fibonacci squares -->
+    <!-- Fibonacci square divisions -->
     <path d="
-      M272 0 V272
-      M272 168 H440
-      M376 168 V272
-      M376 233 H440
-      M415 233 V272
-      M415 257 H440
+      M 272 21.5 V 293.5
+      M 272 189.5 H 440
+      M 376 189.5 V 293.5
+      M 376 253.5 H 440
+      M 415 253.5 V 293.5
+      M 415 277.5 H 440
     "/>
 
     <!-- Golden spiral -->
     <path d="
-      M272 272
-      A272 272 0 0 1 0 0
+      M 272 293.5
+      A 272 272 0 0 1 0 21.5
 
-      M0 0
-      A168 168 0 0 1 168 168
+      M 0 21.5
+      A 168 168 0 0 1 168 189.5
 
-      M168 168
-      A104 104 0 0 1 272 64
+      M 168 189.5
+      A 104 104 0 0 1 272 85.5
 
-      M272 64
-      A64 64 0 0 1 336 128
+      M 272 85.5
+      A 64 64 0 0 1 336 149.5
 
-      M336 128
-      A40 40 0 0 1 296 168
+      M 336 149.5
+      A 40 40 0 0 1 296 189.5
 
-      M296 168
-      A25 25 0 0 1 321 193
+      M 296 189.5
+      A 25 25 0 0 1 321 214.5
     "/>
 
   </g>
